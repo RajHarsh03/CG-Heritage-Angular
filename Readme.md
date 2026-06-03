@@ -13,7 +13,7 @@ This repository serves as a central hub for all Angular training activities and 
 ## Repository Structure
 
 - **Day-01/**: Introduction to Angular and foundational concepts
-  - `my-first-app/`: First Angular application with basic setup and configuration
+  - `student-app/`: First Angular application with basic setup and configuration
   
 - **Day-02/**: (Coming soon) 
 
