@@ -15,7 +15,9 @@ This repository serves as a central hub for all Angular training activities and 
 - **Day-01/**: Introduction to Angular and foundational concepts
   - `student-app/`: First Angular application with basic setup and configuration
   
-- **Day-02/**: (Coming soon) 
+- **Day-02/**: TypeScript Fundamentals and Angular Component Basics
+  - `student-app/`: Student application demonstrating component properties and interpolation
+  - `Day-02-Assign.ts`: Assignment covering TypeScript variables, data types, interfaces, and Angular interpolation 
 
 ## What's Included
 
