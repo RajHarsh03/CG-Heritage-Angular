@@ -19,17 +19,11 @@ This repository serves as a central hub for all Angular training activities and 
   - `student-app/`: Student application demonstrating component properties and interpolation
   - `Day-02-Assign.ts`: Assignment covering TypeScript variables, data types, interfaces, and Angular interpolation 
 
-## What's Included
-
-✅ Step-by-step Angular training modules  
-✅ Practical coding exercises and projects  
-✅ Real-world internship assignments  
-✅ Best practices and code standards  
-✅ Progressive learning path from basics to advanced topics
-
-## Getting Started
-
-Navigate to each day's folder to find the specific projects and learning materials for that phase of the training.
+- **Day-03/**: Angular Components and Signals
+  - `student-app/`: Student application with ProfileCard component
+  - Features a custom `profile-card` component displaying user information and follower count
+  - Implements Angular signals for reactive state management
+  - Includes follow button with increment functionality
 
 ---
 
