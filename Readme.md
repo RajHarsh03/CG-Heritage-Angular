@@ -34,6 +34,12 @@ This repository serves as a central hub for all Angular training activities and 
   - Review and consolidation of: Project setup, TypeScript typing, Components, Signals, Event handling
   - Serves as checkpoint before advancing to advanced Angular concepts
 
+- **Day-05/**: Angular Pipes - Built-in Pipes & Pipe Chaining
+  - `student-app/`: Pipe demo application with advanced data transformation
+  - Assignment 1: Built-in Pipe Explorer - date, currency, text transformation, percent, slice, and json pipes
+  - Assignment 2: Pipe Chaining Challenge - master combining multiple pipes for complex transformations
+  - Learning: Pipe syntax, chaining pipes, real-world data transformation, template optimization
+
 
 ---
 
