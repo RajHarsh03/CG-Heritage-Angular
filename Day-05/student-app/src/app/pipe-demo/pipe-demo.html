@@ -1,1 +1,46 @@
-<p>pipe-demo works!</p>
+<h2>Assignment 1</h2>
+
+<!-- 1. Display todayDate using at least 4 different date format 
+strings (shortDate, longDate, fullDate, dd/MM/yyyy HH:mm)
+-->
+<p><b>1. Date Formats</b></p>
+<p>Short Date: {{ todayDate | date: 'shortDate' }}</p>
+<p>Long Date: {{ todayDate | date: 'longDate' }}</p>
+<p>Full Date: {{ todayDate | date: 'fullDate' }}</p>
+<p>Custom Format: {{ todayDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+
+<!-- 2. Format productPrice as Indian Rupee (INR) with no decimal places-->
+<p><b>2. Currency Formats</b></p>
+<p>Product Price: {{ productPrice | currency: 'INR' : 'symbol' : '1.0-0' }}</p>
+
+<!-- 3. Format productPrice as US Dollar (USD), Euro (EUR), and British Pound (GBP)-->
+<p><b>3. Currency in Different Currencies</b></p>
+<p>Price in USD: {{ productPrice | currency: 'USD' : 'symbol' }}</p>
+<p>Price in EUR: {{ productPrice | currency: 'EUR' : 'symbol' }}</p>
+<p>Price in GBP: {{ productPrice | currency: 'GBP' : 'symbol' }}</p>
+
+<!-- 4. Transform productName to titlecase, uppercase, and lowercase — show all three side by side -->
+<p><b>4. Text Transformations</b></p>
+<p>Title Case: {{ productName | titlecase }}</p>
+<p>Upper Case: {{ productName | uppercase }}</p>
+<p>Lower Case: {{ productName | lowercase }}</p>
+
+<!-- 5. Display discount as a formatted percentage showing exactly 2 decimal places -->
+<p><b>5. Percentage Format</b></p>
+<p>Discount: {{ discount | percent:'2.1-2' }} </p>
+
+<!-- 6. Show only the first 3 items from orderItems using SlicePipe in an *ngFor loop -->
+<p><b>6. Sliced Order Items</b></p>
+<p>Order Items:</p>
+<ul>
+  <li *ngFor="let item of orderItems | slice:0:3">{{ item }}</li>
+</ul>
+
+<!-- 7. Display stockData using JsonPipe inside a <pre> tag for debugging -->
+<p><b>7. JSON Format</b></p>
+<p>Stock Data:</p>
+<pre>{{ stockData | json }}</pre>
+
+<!-- 8. Chain the date pipe output with uppercase: show today's full date in all caps -->
+<p><b>8. Chained Pipes</b></p>
+<p>Full Date (Uppercase): {{ todayDate | date: 'fullDate' | uppercase }}</p>
