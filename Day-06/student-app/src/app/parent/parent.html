@@ -1,0 +1,19 @@
+<h2>Parent Component</h2>
+
+<button (click)="counter = counter + 1">
+    Increment Counter
+</button>
+
+<button (click)="showChild = !showChild">
+    Toggle Child
+</button>
+
+<p>Counter Value: {{ counter }}</p>
+
+@if(showChild){
+
+<app-lifecycle-logger
+    [inputValue]="counter">
+</app-lifecycle-logger>
+
+}

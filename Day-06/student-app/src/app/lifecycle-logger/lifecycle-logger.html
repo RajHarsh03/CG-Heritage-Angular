@@ -1,0 +1,43 @@
+<div class="logger-container">
+
+    <h3>Lifecycle Hook Log</h3>
+
+    <p>
+        Current inputValue: {{ inputValue }}
+    </p>
+
+    <div class="log-table">
+
+        <div class="log-header">
+            <span>Time</span>
+            <span>Hook</span>
+            <span>Detail</span>
+        </div>
+
+        @for(entry of logs; track $index){
+
+        <div class="log-row">
+
+            <span class="time">
+                {{ entry.time }}
+            </span>
+
+            <span class="hook">
+                {{ entry.hook }}
+            </span>
+
+            <span class="detail">
+                {{ entry.detail }}
+            </span>
+
+        </div>
+
+        }
+
+    </div>
+
+    <button (click)="logs = []">
+        Clear Log
+    </button>
+
+</div>

@@ -40,6 +40,13 @@ This repository serves as a central hub for all Angular training activities and 
   - Assignment 2: Pipe Chaining Challenge - master combining multiple pipes for complex transformations
   - Learning: Pipe syntax, chaining pipes, real-world data transformation, template optimization
 
+- **Day-06/**: Angular Component Lifecycle Hooks (Part 1)
+  - `student-app/`: Lifecycle hooks demo application
+  - Assignment 1: LifecycleLoggerComponent - implement all 8 lifecycle hooks with timestamping
+  - Assignment 2: ParentChildComponent with ngOnChanges - detect input changes with visual feedback
+  - Learning: Lifecycle hooks, @Input decorator, change detection, hook execution order
+  - Note: Assignments 3-6 continue in Day-07
+
 
 ---
 
