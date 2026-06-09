@@ -1,0 +1,11 @@
+<div class="child-container" [class.flash]="showFlash" [class.increase]="changeDirection === 'increase'" [class.decrease]="changeDirection === 'decrease'">
+  <h3>Child Component</h3>
+  <p>Current Counter: <strong>{{ counter }}</strong></p>
+  <p>Previous Counter: <strong>{{ previousCounter }}</strong></p>
+  <p *ngIf="changeDirection === 'increase'" class="status-increase">
+    📈 Value Increased
+  </p>
+  <p *ngIf="changeDirection === 'decrease'" class="status-decrease">
+    📉 Value Decreased
+  </p>
+</div>
