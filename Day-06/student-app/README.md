@@ -4,8 +4,6 @@
 
 This project covers Angular component lifecycle hooks - the critical points in a component's lifecycle where you can perform initialization, detection of changes, and cleanup operations.
 
-## Assignments - Part 1
-
 ### Assignment 1: LifecycleLoggerComponent (20 pts)
 
 Create a standalone Angular component named **LifecycleLoggerComponent**. Implement all 8 lifecycle hook interfaces:
@@ -41,15 +39,6 @@ In the ChildComponent, implement ngOnChanges() to detect changes to the counter 
 - Change detection
 - CSS visual feedback
 
----
-
-## Assignments - Part 2 (Coming in Day-07)
-
-Assignments 3-6 will cover:
-- Assignment 3: DataFetchComponent with ngOnInit()
-- Assignment 4: TimerComponent with ngOnDestroy()
-- Assignment 5: FocusBoxComponent with ngAfterViewInit()
-- Assignment 6: LifecycleOrderComponent
 
 ---
 
