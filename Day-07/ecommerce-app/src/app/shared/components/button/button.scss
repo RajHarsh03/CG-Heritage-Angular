@@ -1,0 +1,20 @@
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+
+    &.primary {
+        background: #3b82f6;
+    }
+
+    &.secondary {
+        background: #6b7280;
+    }
+
+    &.danger {
+        background: #ef4444;
+    }
+}
