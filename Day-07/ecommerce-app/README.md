@@ -1,6 +1,77 @@
-# EcommerceApp
+# Day-07: NgModules & Modular Architecture — E-Commerce App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+## Overview
+
+This project is a modular Angular application for a mini e-commerce platform. It demonstrates proper use of NgModules, feature modules, SharedModule, and lazy loading using Angular 21 (standalone architecture).
+
+### Part 1: Project Setup & AppModule (15 pts)
+
+A lean `AppComponent` that only imports the `NavbarComponent` and `RouterOutlet`. The app is configured with `provideRouter()`, `provideHttpClient()`, and `provideClientHydration()` in `app.config.ts`.
+
+- **NavbarComponent** — renders navigation links: Home | Products | Orders | Cart
+- Uses `RouterLink` for client-side navigation
+- `HttpClientModule` equivalent configured via `provideHttpClient()`
+- `BrowserModule` equivalent configured only at the root level
+
+**Key Concepts:**
+- Standalone component architecture
+- App configuration with providers
+- Router setup and navigation
+- Lean root component design
+
+---
+
+### Part 2: SharedModule with Components, Directives & Pipes (25 pts)
+
+A `SharedModule` (`NgModule`) that groups and re-exports reusable UI building blocks. Since Angular 21 generates standalone components by default, all items are placed in `imports` and `exports` (not `declarations`).
+
+#### 2a. Components (10 pts)
+- **ButtonComponent** — accepts `@Input() variant: 'primary' | 'secondary' | 'danger'` with styled variants
+- **BadgeComponent** — accepts `@Input() label: string` and `@Input() color: string` for colored badges
+- **SpinnerComponent** — displays a pure CSS loading animation (no external libraries)
+
+#### 2b. Directives (8 pts)
+- **HighlightDirective** — highlights element background on `mouseenter` with configurable `@Input() color`
+- **TruncateTextDirective** — truncates `innerText` of an element to `@Input() maxChars` characters
+
+#### 2c. Pipes (7 pts)
+- **TruncatePipe** — `{{ text | truncate:50:'...' }}` — truncates string at a given character limit
+- **RupeePipe** — `{{ price | rupee }}` — formats a number as Indian Rupee: ₹1,25,000
+
+**Key Concepts:**
+- NgModule for grouping shared functionality
+- Re-exporting CommonModule, FormsModule, ReactiveFormsModule
+- Custom components, directives, and pipes
+- Standalone items inside NgModule (imports/exports pattern)
+
+---
+
+## Project Structure
+
+```
+src/app/
+├── app.ts                    # Root AppComponent
+├── app.html                  # Root template (navbar + router-outlet)
+├── app.config.ts             # App providers configuration
+├── app.routes.ts             # Route definitions
+├── navbar/
+│   ├── navbar.ts             # NavbarComponent
+│   └── navbar.html           # Navigation links
+└── shared/
+    ├── shared-module.ts      # SharedModule (NgModule)
+    ├── components/
+    │   ├── button/           # ButtonComponent
+    │   ├── badge/            # BadgeComponent
+    │   └── spinner/          # SpinnerComponent
+    ├── directives/
+    │   ├── highlight.ts      # HighlightDirective
+    │   └── truncate-text.ts  # TruncateTextDirective
+    └── pipes/
+        ├── truncate-pipe.ts  # TruncatePipe
+        └── rupee-pipe.ts     # RupeePipe
+```
+
+---
 
 ## Development server
 

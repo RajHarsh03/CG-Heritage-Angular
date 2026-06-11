@@ -46,6 +46,12 @@ This repository serves as a central hub for all Angular training activities and 
   - Assignment 2: ParentChildComponent with ngOnChanges - detect input changes with visual feedback
   - Learning: Lifecycle hooks, @Input decorator, change detection, hook execution order
 
+- **Day-07/**: NgModules & Modular Architecture
+  - `ecommerce-app/`: Mini e-commerce platform with modular architecture
+  - Part 1: Project Setup & AppModule - lean root component with NavbarComponent and routing
+  - Part 2: SharedModule with reusable ButtonComponent, BadgeComponent, SpinnerComponent, HighlightDirective, TruncateTextDirective, TruncatePipe, and RupeePipe
+  - Learning: NgModules, SharedModule, standalone components in NgModule, feature modules, custom pipes & directives
+
 ---
 
 **Note**: This repository is designed for the Corporate Guide Angular Training Program and serves as the primary resource for internship work and learning.
