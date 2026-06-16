@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #7676c6;
+  padding: 14px 32px;
+}
+
+.navbar .brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: auto;
+}
+
+.navbar a {
+  color: #00293d;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+.navbar a.active {
+  color: #dbd3d3;
+  font-weight: 600;
+  border-bottom: 2px solid #e94560;
+}
+
+.content {
+  padding: 32px;
+}

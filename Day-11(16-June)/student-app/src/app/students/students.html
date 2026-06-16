@@ -1,1 +1,34 @@
-<p>students works!</p>
+<div class="students-page">
+  <h1>Students</h1>
+
+  <!-- Search Box (Bonus) -->
+  <div class="search-box">
+    <input
+      type="text"
+      [(ngModel)]="searchInput"
+      placeholder="Search student..."
+      (keyup.enter)="onSearch()"
+    />
+    <button (click)="onSearch()">Search</button>
+  </div>
+
+  @if (searchResult) {
+    <p class="search-result">🔍 Showing results for: <strong>{{ searchResult }}</strong></p>
+  }
+
+  <!-- Student List -->
+  <ul class="student-list">
+    @for (student of filteredStudents; track student.id) {
+      <li>
+        <a [routerLink]="[student.id]" routerLinkActive="active-student">
+          {{ student.name }}
+        </a>
+      </li>
+    } @empty {
+      <p class="no-results">No students found for "<strong>{{ searchResult }}</strong>".</p>
+    }
+  </ul>
+
+  <!-- Child route renders here -->
+  <router-outlet></router-outlet>
+</div>
