@@ -1,0 +1,50 @@
+<div class="page">
+  <div class="card">
+    <div class="login-header">
+      <h2>Sign in</h2>
+      <p>Enter your credentials to continue</p>
+    </div>
+
+    @if (errorMessage) {
+      <div class="alert alert-error">{{ errorMessage }}</div>
+    }
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter your username"
+          autocomplete="username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="role">Login as</label>
+        <select id="role" name="role" [(ngModel)]="selectedRole">
+          <option value="student">Student</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+    <p class="hint">Any username and password will work. Select a role to test role-based access.</p>
+  </div>
+</div>

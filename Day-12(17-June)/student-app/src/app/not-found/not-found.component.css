@@ -1,0 +1,44 @@
+.not-found-card {
+  text-align: center;
+  max-width: 400px;
+}
+
+.error-code {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #e5e7eb;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.6rem;
+}
+
+.message {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.btn {
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.secondary-link {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  transition: color 0.12s;
+}
+
+.secondary-link:hover {
+  color: #4338ca;
+}

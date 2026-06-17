@@ -1,0 +1,29 @@
+.card {
+  max-width: 420px;
+}
+
+.login-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.login-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.login-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.hint {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  line-height: 1.5;
+}

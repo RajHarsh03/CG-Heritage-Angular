@@ -1,0 +1,30 @@
+<div class="list-page">
+  <div class="list-header">
+    <div>
+      <h2>Students</h2>
+      <p>Select a student to view their details</p>
+    </div>
+    <span class="lazy-badge">Lazy Loaded</span>
+  </div>
+
+  @if (loading) {
+    <div class="loading">Loading...</div>
+  } @else {
+    <div class="students-list">
+      @for (student of students; track student.id) {
+        <a [routerLink]="[student.id]" class="student-row">
+          <div class="student-initial">{{ student.name[0] }}</div>
+          <div class="student-info">
+            <span class="student-name">{{ student.name }}</span>
+            <span class="student-subject">{{ student.subject }}</span>
+          </div>
+          <div class="student-tags">
+            <span class="tag tag-grade">{{ student.grade }}</span>
+            <span class="tag tag-gpa">{{ student.gpa }} GPA</span>
+          </div>
+          <span class="chevron">›</span>
+        </a>
+      }
+    </div>
+  }
+</div>

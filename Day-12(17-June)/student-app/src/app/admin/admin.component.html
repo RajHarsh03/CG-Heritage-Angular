@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="card admin-card">
+
+    <div class="admin-header">
+      <div>
+        <h2>Admin Panel</h2>
+        <p>Signed in as <strong>{{ auth.getRole() | titlecase }}</strong></p>
+      </div>
+      <span class="admin-badge">Admin Only</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 class="section-title">Overview</h3>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Students</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Subjects</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">3.7</span>
+        <span class="stat-label">Avg GPA</span>
+      </div>
+    </div>
+
+    <a routerLink="/dashboard" class="btn btn-secondary back-btn">Back to Dashboard</a>
+
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="detail-page">
+  @if (student) {
+    <div class="detail-card">
+
+      <div class="detail-topbar">
+        <a routerLink="/students" class="back-link">Back to Students</a>
+        <span class="resolver-badge">Route Resolver</span>
+      </div>
+
+      <div class="detail-header">
+        <div class="detail-initial">{{ student.name[0] }}</div>
+        <div>
+          <h2>{{ student.name }}</h2>
+          <p class="detail-subject">{{ student.subject }}</p>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-item">
+          <span class="detail-label">Student ID</span>
+          <span class="detail-value">#{{ student.id }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Age</span>
+          <span class="detail-value">{{ student.age }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Grade</span>
+          <span class="detail-value highlight-blue">{{ student.grade }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">GPA</span>
+          <span class="detail-value highlight-green">{{ student.gpa }} / 4.0</span>
+        </div>
+        <div class="detail-item full-width">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">{{ student.email }}</span>
+        </div>
+        <div class="detail-item full-width">
+          <span class="detail-label">Major</span>
+          <span class="detail-value">{{ student.subject }}</span>
+        </div>
+      </div>
+
+    </div>
+  }
+</div>

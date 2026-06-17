@@ -1,0 +1,37 @@
+<div class="page">
+  <div class="card dashboard-card">
+
+    <div class="dashboard-header">
+      <div class="user-initial">{{ auth.getRole()![0].toUpperCase() }}</div>
+      <div>
+        <h2>Dashboard</h2>
+        <span class="role-badge" [class]="'badge-' + auth.getRole()">
+          {{ auth.getRole() | titlecase }}
+        </span>
+      </div>
+    </div>
+
+    <p class="welcome-text">You are signed in successfully.</p>
+
+    <div class="divider"></div>
+
+    <h3 class="section-title">Quick Links</h3>
+    <div class="links-grid">
+      <a routerLink="/students" class="link-card">
+        <span class="link-label">Students</span>
+        <span class="link-desc">View all students</span>
+      </a>
+      <a routerLink="/profile" class="link-card">
+        <span class="link-label">Profile</span>
+        <span class="link-desc">Edit your info</span>
+      </a>
+      @if (auth.hasRole('admin')) {
+        <a routerLink="/admin" class="link-card link-card-admin">
+          <span class="link-label">Admin Panel</span>
+          <span class="link-desc">Manage the app</span>
+        </a>
+      }
+    </div>
+
+  </div>
+</div>

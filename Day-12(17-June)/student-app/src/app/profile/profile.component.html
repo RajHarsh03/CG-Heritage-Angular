@@ -1,0 +1,65 @@
+<div class="page">
+  <div class="card profile-card">
+    <div class="profile-header">
+      <h2>Edit Profile</h2>
+      <p>Update your personal information</p>
+    </div>
+
+    @if (isDirty) {
+      <div class="alert alert-warning">You have unsaved changes.</div>
+    }
+
+    @if (isSaved) {
+      <div class="alert alert-success">Profile saved successfully.</div>
+    }
+
+    <form (ngSubmit)="save()">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          id="fullName"
+          type="text"
+          name="fullName"
+          [(ngModel)]="fullName"
+          (ngModelChange)="onFieldChange()"
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          (ngModelChange)="onFieldChange()"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          [(ngModel)]="phone"
+          (ngModelChange)="onFieldChange()"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="reset()" [disabled]="!isDirty">
+          Reset
+        </button>
+        <button type="submit" class="btn btn-primary save-btn" [disabled]="!isDirty">
+          Save Changes
+        </button>
+      </div>
+    </form>
+
+    <p class="hint">Navigate away with unsaved changes to see the confirmation dialog.</p>
+  </div>
+</div>

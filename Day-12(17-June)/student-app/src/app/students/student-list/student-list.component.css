@@ -1,0 +1,144 @@
+.list-page {
+  max-width: 680px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+}
+
+.list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.list-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.2rem;
+}
+
+.list-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.lazy-badge {
+  flex-shrink: 0;
+  align-self: center;
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.loading {
+  text-align: center;
+  color: #9ca3af;
+  padding: 3rem;
+  font-size: 0.9rem;
+}
+
+.students-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.student-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: inherit;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+
+.student-row:last-child {
+  border-bottom: none;
+}
+
+.student-row:hover {
+  background: #f9fafb;
+}
+
+.student-initial {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #1e1b4b;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.student-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.student-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-subject {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.student-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.tag-grade {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.tag-gpa {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.chevron {
+  font-size: 1.3rem;
+  color: #d1d5db;
+  flex-shrink: 0;
+  transition: color 0.12s;
+}
+
+.student-row:hover .chevron {
+  color: #6b7280;
+}

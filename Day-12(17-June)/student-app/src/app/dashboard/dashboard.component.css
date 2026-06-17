@@ -1,0 +1,121 @@
+.dashboard-card {
+  max-width: 520px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.user-initial {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #1e1b4b;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboard-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.3rem;
+}
+
+.role-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+}
+
+.badge-admin {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-student {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.welcome-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9ca3af;
+  margin-bottom: 0.85rem;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #fafafa;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.link-card:hover {
+  border-color: #a5b4fc;
+  background: #f5f3ff;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+}
+
+.link-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.link-desc {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.link-card-admin {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.link-card-admin:hover {
+  background: #fef3c7;
+  border-color: #fbbf24;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
+}
+
+.link-card-admin .link-label {
+  color: #92400e;
+}
