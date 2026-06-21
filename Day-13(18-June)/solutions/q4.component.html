@@ -1,0 +1,58 @@
+<section class="form-container">
+  <h2>Q4 – markAllAsTouched() Demo</h2>
+
+  <!-- Explanation block -->
+  <div class="explanation">
+    <strong>What does markAllAsTouched() do?</strong>
+    <p>
+      Angular only reveals validation errors for fields the user has
+      interacted with ("touched"). Calling
+      <code>markAllAsTouched()</code> inside <code>onSubmit()</code>
+      forces every field into the touched state, making all error
+      messages visible at once when the user tries to submit an
+      incomplete form.
+    </p>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" formControlName="username" placeholder="Enter username" />
+
+      <div class="errors" *ngIf="f['username'].invalid && f['username'].touched">
+        <span *ngIf="f['username'].errors?.['required']">Username is required.</span>
+        <span *ngIf="f['username'].errors?.['minlength']">
+          Username must be at least
+          {{ f['username'].errors?.['minlength'].requiredLength }} characters.
+        </span>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" placeholder="Enter password" />
+
+      <div class="errors" *ngIf="f['password'].invalid && f['password'].touched">
+        <span *ngIf="f['password'].errors?.['required']">Password is required.</span>
+        <span *ngIf="f['password'].errors?.['minlength']">
+          Password must be at least
+          {{ f['password'].errors?.['minlength'].requiredLength }} characters.
+        </span>
+      </div>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <!-- Submission feedback -->
+    <div class="success" *ngIf="submissionStatus === 'success'">
+      Form submitted successfully! Check the console for data.
+    </div>
+    <div class="errors" *ngIf="submissionStatus === 'error'">
+      Submission failed. Please fix the errors above and try again.
+    </div>
+
+  </form>
+</section>

@@ -1,0 +1,56 @@
+<section class="form-container">
+  <h2>Job Application Form</h2>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input id="fullName" type="text" formControlName="fullName" placeholder="Enter your full name" />
+
+      <div class="errors" *ngIf="f['fullName'].invalid && f['fullName'].touched">
+        <span *ngIf="f['fullName'].errors?.['required']">Full name is required.</span>
+        <span *ngIf="f['fullName'].errors?.['minlength']">
+          Full name must be at least
+          {{ f['fullName'].errors?.['minlength'].requiredLength }} characters.
+        </span>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Enter your email" />
+
+      <div class="errors" *ngIf="f['email'].invalid && f['email'].touched">
+        <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
+        <span *ngIf="f['email'].errors?.['email']">Please enter a valid email address.</span>
+      </div>
+    </div>
+
+    <!-- Years of Experience -->
+    <div class="form-group">
+      <label for="yearsOfExperience">Years of Experience</label>
+      <input id="yearsOfExperience" type="number" formControlName="yearsOfExperience" placeholder="e.g. 3" />
+
+      <div class="errors" *ngIf="f['yearsOfExperience'].invalid && f['yearsOfExperience'].touched">
+        <span *ngIf="f['yearsOfExperience'].errors?.['required']">Years of experience is required.</span>
+        <span *ngIf="f['yearsOfExperience'].errors?.['min']">Value cannot be less than 0.</span>
+        <span *ngIf="f['yearsOfExperience'].errors?.['max']">Value cannot exceed 40.</span>
+      </div>
+    </div>
+
+    <!-- Job Role -->
+    <div class="form-group">
+      <label for="jobRole">Job Role</label>
+      <input id="jobRole" type="text" formControlName="jobRole" placeholder="e.g. Frontend Developer" />
+
+      <div class="errors" *ngIf="f['jobRole'].invalid && f['jobRole'].touched">
+        <span *ngIf="f['jobRole'].errors?.['required']">Job role is required.</span>
+      </div>
+    </div>
+
+    <button type="submit">Submit Application</button>
+
+  </form>
+</section>

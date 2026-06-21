@@ -1,0 +1,86 @@
+<section class="form-container">
+  <h2>Q5 – Extended Student Registration Form</h2>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" formControlName="firstName" placeholder="Enter first name" />
+
+      <div class="errors" *ngIf="f['firstName'].invalid && f['firstName'].touched">
+        <span *ngIf="f['firstName'].errors?.['required']">First name is required.</span>
+        <span *ngIf="f['firstName'].errors?.['minlength']">
+          First name must be at least
+          {{ f['firstName'].errors?.['minlength'].requiredLength }} characters.
+        </span>
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" type="text" formControlName="lastName" placeholder="Enter last name" />
+
+      <div class="errors" *ngIf="f['lastName'].invalid && f['lastName'].touched">
+        <span *ngIf="f['lastName'].errors?.['required']">Last name is required.</span>
+        <span *ngIf="f['lastName'].errors?.['minlength']">
+          Last name must be at least
+          {{ f['lastName'].errors?.['minlength'].requiredLength }} characters.
+        </span>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Enter email" />
+
+      <div class="errors" *ngIf="f['email'].invalid && f['email'].touched">
+        <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
+        <span *ngIf="f['email'].errors?.['email']">Please enter a valid email address.</span>
+      </div>
+    </div>
+
+    <!-- Course -->
+    <div class="form-group">
+      <label for="course">Course</label>
+      <input id="course" type="text" formControlName="course" placeholder="e.g. Computer Science" />
+
+      <div class="errors" *ngIf="f['course'].invalid && f['course'].touched">
+        <span *ngIf="f['course'].errors?.['required']">Course is required.</span>
+      </div>
+    </div>
+
+    <!-- (a) Date of Birth — with custom minAge(16) validator -->
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input id="dateOfBirth" type="date" formControlName="dateOfBirth" />
+
+      <div class="errors" *ngIf="f['dateOfBirth'].invalid && f['dateOfBirth'].touched">
+        <span *ngIf="f['dateOfBirth'].errors?.['required']">Date of birth is required.</span>
+        <span *ngIf="f['dateOfBirth'].errors?.['minAge']">
+          You must be at least
+          {{ f['dateOfBirth'].errors?.['minAge'].required }} years old to register.
+          (Your age: {{ f['dateOfBirth'].errors?.['minAge'].actual }})
+        </span>
+      </div>
+    </div>
+
+    <!-- (b) Gender Dropdown -->
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select id="gender" formControlName="gender">
+        <option value="" disabled>Select your gender</option>
+        <option *ngFor="let option of genderOptions" [value]="option">{{ option }}</option>
+      </select>
+
+      <div class="errors" *ngIf="f['gender'].invalid && f['gender'].touched">
+        <span *ngIf="f['gender'].errors?.['required']">Please select a gender.</span>
+      </div>
+    </div>
+
+    <button type="submit">Register Student</button>
+
+  </form>
+</section>

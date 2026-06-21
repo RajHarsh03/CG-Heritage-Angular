@@ -1,0 +1,29 @@
+<section class="form-container">
+  <h2>Q3 – Custom Profanity Validator</h2>
+
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="comment">Your Comment</label>
+      <textarea
+        id="comment"
+        formControlName="comment"
+        rows="4"
+        placeholder="Type your comment here...">
+      </textarea>
+
+      <!-- Error shown when the custom validator fires -->
+      <div class="errors" *ngIf="comment?.errors?.['hasProfanity'] && comment?.touched">
+        <span>Your comment contains inappropriate language. Please revise it.</span>
+      </div>
+
+      <!-- Success feedback -->
+      <div class="success" *ngIf="comment?.valid && comment?.dirty">
+        <span>Looks good!</span>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="commentForm.invalid">Submit Comment</button>
+
+  </form>
+</section>

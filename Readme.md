@@ -62,11 +62,31 @@ This repository serves as a central hub for all Angular training activities and 
 
 - **Day-10(15-June)/**: Angular Services & Dependency Injection
 
-- **Day-11(16-June)/**:  Angular Router & SPA Navigation
+- **Day-11(16-June)/**: Angular Router & SPA Navigation
   - Multi-page SPA using Angular Router
   - Route configuration, `routerLink`, `routerLinkActive`, and `ActivatedRoute`
   - Dynamic route parameters (`/students/:id`) and query params (`?search=NAME`)
   - Learning: Route setup, navigation, child routes, programmatic navigation with `Router.navigate()`
+
+- **Day-12(17-June)/**: Angular Security & Performance Routing
+  - `student-app/`: Secure, lazy-loaded Angular application with route guards
+  - Auth Guard (`CanActivate`) protecting the `/dashboard` route, redirecting unauthenticated users to `/login`
+  - `CanDeactivate` guard on the `/profile` form page — warns users before leaving with unsaved changes
+  - Lazy-loaded `StudentsModule` with child routes: `StudentListComponent` and `StudentDetailComponent`
+  - Route Resolver (`StudentResolver`) pre-fetching student data before the detail page renders
+  - Wildcard route (`**`) pointing to a custom `NotFoundComponent` (404 page)
+  - Bonus: Role-based guard with `admin` and `student` roles, unauthorized access redirected to `/unauthorized`
+  - Learning: `CanActivate`, `CanDeactivate`, lazy loading with `loadChildren`, route resolvers, wildcard routes
+
+- **Day-13(18-June)/**: Angular Reactive Forms & Custom Validators
+  - `Assignment.md`: 5-question assignment covering Angular Forms in depth
+  - `solutions/`: Complete solutions for all questions
+    - `q1.md`: Written comparison of Template-Driven Forms vs Reactive Forms with real-world examples
+    - `q2.component.ts/html`: Job Application Reactive Form — Full Name, Email, Years of Experience, Job Role with all validation messages
+    - `q3.component.ts/html`: Custom `noProfanityValidator` (`ValidatorFn`) that returns `{ hasProfanity: true }` if the field contains `'badword'`
+    - `q4.component.ts/html`: Demonstration of `markAllAsTouched()` with a complete `onSubmit()` method — checks validity, logs data on success, logs all control errors on failure
+    - `q5.component.ts/html`: Extended Student Registration Form with a `minAgeValidator(16)` custom validator on Date of Birth and a Gender dropdown
+  - Learning: `FormBuilder`, `FormGroup`, `FormControl`, built-in validators, custom `ValidatorFn`, `markAllAsTouched()`, reactive form patterns
 
 ---
 
