@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Assignment 3 - Observable-Based HTTP</h2>
+  <p class="info">Users from <code>/users</code> → click a user to load their todos via <code>/todos?userId=</code></p>
+
+  <!-- ── User list with real-time search ──────────────────────────────────── -->
+  <h3>Users — <code>map()</code> + <code>tap()</code> + <code>filter()</code> + <code>takeUntil()</code></h3>
+  <p class="info">
+    <code>tap()</code> logs raw response · <code>map()</code> extracts name &amp; email only ·
+    <code>filter()</code> drives search · <code>takeUntil(destroy$)</code> prevents memory leaks
+  </p>
+
+  <input type="text" [formControl]="searchControl" placeholder="Search users by name..." />
+
+  <div *ngFor="let user of filteredUsers" class="user-card">
+    <div>
+      <strong>{{ user.name }}</strong><br />
+      <span>{{ user.email }}</span>
+    </div>
+    <button (click)="loadUserTodos(user)">View Todos</button>
+  </div>
+  <p *ngIf="filteredUsers.length === 0" class="info">No users match your search.</p>
+
+  <!-- ── Bonus: switchMap — user todos ────────────────────────────────────── -->
+  <h3>Bonus — <code>switchMap</code>: Todos for {{ selectedUserName || '...' }}</h3>
+  <p class="info">
+    Clicking "View Todos" fetches <code>/users/:id</code> then <code>switchMap</code>s
+    to <code>/todos?userId=:id</code>. Any previous in-flight request is cancelled automatically.
+  </p>
+
+  <div *ngIf="loadingTodos" class="loading">Loading todos...</div>
+
+  <div *ngIf="selectedUserTodos.length > 0" class="stats">
+    <span class="stat">Total: {{ selectedUserTodos.length }}</span>
+    <span class="stat" style="background:#d4edda; color:#155724;">Completed: {{ completedCount }}</span>
+    <span class="stat" style="background:#fff3cd; color:#856404;">Pending: {{ pendingCount }}</span>
+  </div>
+
+  <div *ngFor="let todo of selectedUserTodos"
+       class="todo-item"
+       [class.todo-done]="todo.completed"
+       [class.todo-pending]="!todo.completed">
+    <span>{{ todo.completed ? '✓' : '○' }}</span>
+    <span>{{ todo.title }}</span>
+  </div>
+
+  <p *ngIf="!loadingTodos && selectedUserName && selectedUserTodos.length === 0" class="info">
+    No todos found for this user.
+  </p>
+</div>

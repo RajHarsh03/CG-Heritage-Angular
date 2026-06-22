@@ -1,0 +1,62 @@
+<div class="container">
+  <h2>Assignment 5 - Type-Safe HTTP</h2>
+
+  <div class="info-box">
+    All service methods use TypeScript generics:
+    <code>http.get&lt;User[]&gt;()</code>, <code>http.get&lt;Todo[]&gt;()</code>,
+    <code>http.get&lt;Todo&gt;()</code>, <code>http.post&lt;Todo&gt;()</code>,
+    <code>http.patch&lt;User&gt;()</code>. Check the console for typed responses.
+  </div>
+
+  <!-- ── Products — Observable<Product[]> ────────────────────────────────── -->
+  <h3>Products — <code>Observable&lt;Product[]&gt;</code></h3>
+  <div *ngIf="loadingProducts" class="loading">Loading products...</div>
+  <div class="grid">
+    <div *ngFor="let p of products" class="product-card">
+      <h4>{{ p.name }}</h4>
+      <div class="price">₹{{ p.price | number:'1.2-2' }}</div>
+      <div *ngIf="p.description" class="desc">{{ p.description }}</div>
+    </div>
+  </div>
+
+  <!-- ── Users — http.get<User[]>() ──────────────────────────────────────── -->
+  <h3>Users — <code>http.get&lt;User[]&gt;()</code></h3>
+  <div *ngIf="loadingUsers" class="loading">Loading users...</div>
+  <div *ngFor="let u of users" class="user-card">
+    <strong>{{ u.name }}</strong>
+    <span>{{ u.email }} · {{ u.company.name }}</span>
+  </div>
+
+  <!-- ── Todos — http.get<Todo[]>() ──────────────────────────────────────── -->
+  <h3>Todos — <code>http.get&lt;Todo[]&gt;()</code> <small style="color:#999;">(first 10)</small></h3>
+  <div *ngIf="loadingTodos" class="loading">Loading todos...</div>
+  <div *ngFor="let t of todos" class="todo-item" [class.todo-done]="t.completed" [class.todo-pending]="!t.completed">
+    <span>{{ t.completed ? '✓' : '○' }}</span>
+    <span>{{ t.title }}</span>
+  </div>
+
+  <!-- ── Single Todo — http.get<Todo>() ──────────────────────────────────── -->
+  <h3>Single Todo — <code>http.get&lt;Todo&gt;()</code></h3>
+  <button (click)="loadSingleTodo(7)">Load Todo #7</button>
+  <div *ngIf="loadingSingle" class="loading">Loading...</div>
+  <pre *ngIf="singleTodo">{{ singleTodo | json }}</pre>
+
+  <!-- ── Bonus: Utility Types ─────────────────────────────────────────────── -->
+  <h3>Bonus — TypeScript Utility Types</h3>
+
+  <h4 style="margin-bottom:0.3rem;"><code>NewTodo = Omit&lt;Todo, 'id'&gt;</code></h4>
+  <p style="color:#555; font-size:0.9rem;">
+    Used for POST requests — the <code>id</code> field is excluded so you can't accidentally send one.
+  </p>
+  <pre>Input:    {{ newTodoExample | json }}</pre>
+  <pre *ngIf="createdTodo">Response: {{ createdTodo | json }}</pre>
+
+  <h4 style="margin-bottom:0.3rem; margin-top:1.5rem;"><code>PartialUser = Partial&lt;User&gt;</code></h4>
+  <p style="color:#555; font-size:0.9rem;">
+    Used for PATCH requests — only send the fields you want to update.
+  </p>
+  <pre>Patch payload: {{ patchExample | json }}</pre>
+  <button class="btn-secondary" (click)="patchUser()">PATCH User #1</button>
+  <div *ngIf="loadingPatch" class="loading" style="margin-top:0.5rem;">Patching...</div>
+  <pre *ngIf="patchedUser" style="margin-top:0.5rem;">Response: {{ patchedUser | json }}</pre>
+</div>

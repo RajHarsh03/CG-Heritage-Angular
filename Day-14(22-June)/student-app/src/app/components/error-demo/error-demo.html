@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Assignment 4 - Error Handling</h2>
+
+  <!-- ── Interceptor Info ─────────────────────────────────────────────────── -->
+  <div class="info-box">
+    <strong>Bonus — Global HttpInterceptor active</strong><br />
+    <code>errorInterceptor</code> is registered in <code>app.config.ts</code> via
+    <code>withInterceptors([errorInterceptor])</code>. Every HTTP error in the app
+    is logged centrally — check the console on any request.
+  </div>
+
+  <!-- ── Bad Endpoint (404 + retry) ──────────────────────────────────────────  -->
+  <h3>Deliberate 404 Error with <code>retry(2)</code></h3>
+  <p class="info">
+    Calls <code>/api/wrong-endpoint</code>. The request is retried 2 extra times
+    (3 total) before <code>handleError()</code> fires and shows the message below.
+    Watch the Network tab — you'll see 3 failed requests.
+  </p>
+
+  <button class="btn-danger" (click)="triggerError()">Trigger 404 Error</button>
+
+  <div *ngIf="loadingBad" class="loading" style="margin-top: 0.75rem;">
+    Retrying request (up to 2 times)...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-box">
+    <strong>Error:</strong> {{ errorMessage }}
+  </div>
+
+  <!-- ── Valid Endpoint ───────────────────────────────────────────────────── -->
+  <h3>Valid Endpoint (for comparison)</h3>
+  <button class="btn-success" (click)="fetchValid()">Fetch /posts/1</button>
+
+  <div *ngIf="loadingValid" class="loading" style="margin-top: 0.75rem;">Loading...</div>
+
+  <div *ngIf="validResult" class="success-box">
+    <strong>Success:</strong>
+    <pre>{{ validResult }}</pre>
+  </div>
+
+  <!-- ── handleError() Status Code Reference ─────────────────────────────── -->
+  <h3>handleError() — Status Code Map</h3>
+  <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+    <thead>
+      <tr style="background: #f0f0f0;">
+        <th style="padding: 0.5rem; text-align: left; border: 1px solid #ddd;">Status</th>
+        <th style="padding: 0.5rem; text-align: left; border: 1px solid #ddd;">User-Friendly Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">400</td><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">Bad Request — invalid or malformed request</td></tr>
+      <tr><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">401</td><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">Unauthorized — please log in</td></tr>
+      <tr><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">403</td><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">Forbidden — no permission</td></tr>
+      <tr><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">404</td><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">Not Found — resource does not exist</td></tr>
+      <tr><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">500</td><td style="padding:0.4rem 0.5rem; border:1px solid #ddd;">Internal Server Error — server-side problem</td></tr>
+    </tbody>
+  </table>
+</div>

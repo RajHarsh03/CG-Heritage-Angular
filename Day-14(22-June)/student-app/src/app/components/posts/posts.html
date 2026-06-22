@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Assignment 2 - Consuming REST APIs</h2>
+  <p class="info">API: <code>https://jsonplaceholder.typicode.com/todos</code></p>
+
+  <!-- ── Load Single Todo by ID ──────────────────────────────────────────── -->
+  <h3>Load Single Todo</h3>
+  <button class="btn-primary" (click)="loadTodoById(5)">Load Todo #5</button>
+
+  <div *ngIf="loadingSingle" class="loading">Loading...</div>
+  <div *ngIf="selectedTodo" class="single-todo">
+    <strong>#{{ selectedTodo.id }}</strong> — {{ selectedTodo.title }}<br />
+    Status: <span class="badge" [class.done-badge]="selectedTodo.completed" [class.pending-badge]="!selectedTodo.completed">
+      {{ selectedTodo.completed ? 'Completed' : 'Pending' }}
+    </span>
+    &nbsp;| User: {{ selectedTodo.userId }}
+  </div>
+
+  <!-- ── Add New Todo ─────────────────────────────────────────────────────── -->
+  <h3>Add New Todo</h3>
+  <form [formGroup]="addForm" (ngSubmit)="onAddTodo()">
+    <input formControlName="title" placeholder="Todo title" />
+    <div class="error" *ngIf="f['title'].invalid && f['title'].touched">
+      <span *ngIf="f['title'].errors?.['required']">Title is required.</span>
+      <span *ngIf="f['title'].errors?.['minlength']">Title must be at least 3 characters.</span>
+    </div>
+    <button type="submit" class="btn-success">Add Todo</button>
+  </form>
+
+  <!-- ── Bonus: reqres.in Login ───────────────────────────────────────────── -->
+  <h3>Bonus — reqres.in Login</h3>
+  <p class="info">Simulates login and shows the token (also logged to console).</p>
+  <button class="btn-secondary" (click)="onReqresLogin()">Login via reqres.in</button>
+  <div *ngIf="loginToken" class="token-box">Token: <strong>{{ loginToken }}</strong></div>
+  <div *ngIf="loginError" class="error">{{ loginError }}</div>
+
+  <!-- ── All Todos ────────────────────────────────────────────────────────── -->
+  <h3>All Todos <small style="color:#999; font-size:0.8rem;">(first 20)</small></h3>
+  <div *ngIf="loadingList" class="loading">Loading todos...</div>
+
+  <div *ngFor="let todo of allTodos" class="todo-card">
+    <div>
+      <span class="badge" [class.done-badge]="todo.completed" [class.pending-badge]="!todo.completed">
+        {{ todo.completed ? '✓' : '○' }}
+      </span>
+      <span class="title" [class.done]="todo.completed" style="margin-left:0.5rem;">
+        #{{ todo.id }} — {{ todo.title }}
+      </span>
+    </div>
+    <div class="actions">
+      <button class="btn-danger" (click)="onDelete(todo.id)">Delete</button>
+    </div>
+  </div>
+
+  <p *ngIf="!loadingList && allTodos.length === 0" class="info">No todos to display.</p>
+</div>

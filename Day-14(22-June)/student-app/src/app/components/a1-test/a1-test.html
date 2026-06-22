@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Assignment 1 - HttpClient Setup</h2>
+  <p>All 4 HTTP methods are called against <code>https://jsonplaceholder.typicode.com/todos</code> in <code>ngOnInit()</code>. Check the browser console for full logs.</p>
+
+  <div class="section">
+    <div class="label">GET — <code>/todos</code> (first 3 shown)</div>
+    <pre>{{ getResult || 'Loading...' }}</pre>
+  </div>
+
+  <div class="section">
+    <div class="label">
+      POST — <code>/todos</code>
+      <span class="badge green">Bonus: Content-Type: application/json header applied</span>
+    </div>
+    <pre>{{ postResult || 'Loading...' }}</pre>
+  </div>
+
+  <div class="section">
+    <div class="label">PUT — <code>/todos/1</code></div>
+    <pre>{{ putResult || 'Loading...' }}</pre>
+  </div>
+
+  <div class="section">
+    <div class="label">DELETE — <code>/todos/1</code></div>
+    <pre>{{ deleteResult || 'Loading...' }}</pre>
+  </div>
+</div>
