@@ -88,6 +88,15 @@ This repository serves as a central hub for all Angular training activities and 
     - `q5.component.ts/html`: Extended Student Registration Form with a `minAgeValidator(16)` custom validator on Date of Birth and a Gender dropdown
   - Learning: `FormBuilder`, `FormGroup`, `FormControl`, built-in validators, custom `ValidatorFn`, `markAllAsTouched()`, reactive form patterns
 
+- **Day-14(22-June)/**: Angular HTTP Client & REST API Integration
+  - `Assignement.md`: 5 assignments covering Angular's HTTP layer end-to-end
+  - Assignment 1: `HttpClientModule` setup — `DataService` with `GET`, `POST`, `PUT`, `DELETE` methods against `jsonplaceholder.typicode.com`, custom HTTP headers
+  - Assignment 2: Consuming REST APIs — `PostsComponent` listing all posts, load by ID, add via form, delete by ID, bonus login simulation with `reqres.in`
+  - Assignment 3: Observable-based HTTP — `map`, `tap`, `filter` operators, real-time search, proper unsubscription with `takeUntil` and `Subject`, bonus `switchMap` chaining
+  - Assignment 4: Error handling — `handleError()` covering `400/401/403/404/500`, user-friendly error messages, `retry(2)`, bonus global `HttpInterceptor`
+  - Assignment 5: Type-safe HTTP — `User`, `Post`, `Comment`, `Product` interfaces, generic service methods (`http.get<User[]>()`), bonus TypeScript utility types (`Partial`, `Omit`)
+  - Learning: `HttpClient`, `HttpClientModule`, RxJS operators, error handling, type-safe generics, HTTP interceptors
+
 ---
 
 **Note**: This repository is designed for the Corporate Guide Angular Training Program and serves as the primary resource for internship work and learning.
