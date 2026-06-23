@@ -1,0 +1,51 @@
+<div>
+  <h2>Assignment 2 - map, filter, tap, switchMap, mergeMap</h2>
+
+  <h3>map + tap + filter</h3>
+  <p style="font-size:0.85rem; color:#777;">Numbers 1-10 squared with <code>map</code>, logged with <code>tap</code>, kept if &gt; 25 with <code>filter</code>.</p>
+  <div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+    <div>
+      <strong>Kept values (n² &gt; 25)</strong>
+      <div style="margin-top:0.4rem;">
+        <span *ngFor="let n of squared" style="margin-right:0.4rem; background:#d4edda; color:#155724; padding:0.15rem 0.5rem; border-radius:10px;">{{ n }}</span>
+      </div>
+    </div>
+    <div>
+      <strong>tap log (all squared values)</strong>
+      <ul style="padding-left:1.2rem; font-size:0.85rem; color:#555;">
+        <li *ngFor="let l of tapLog">{{ l }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>switchMap - fetch post on click</h3>
+  <p style="font-size:0.85rem; color:#777;">Each click cancels the previous request and starts a fresh one.</p>
+  <button (click)="onFetchClick()" style="padding:0.3rem 0.9rem; cursor:pointer;">Fetch Post</button>
+  <p *ngIf="postLoading" style="color:#888; font-style:italic; margin-top:0.4rem;">Loading...</p>
+  <div *ngIf="post" style="background:#f0f4ff; border:1px solid #c5d5f5; border-radius:6px; padding:0.6rem 1rem; margin-top:0.5rem;">
+    <strong>#{{ post.id }}</strong> - {{ post.title }}
+  </div>
+
+  <h3>mergeMap - users 1, 2, 3 concurrently</h3>
+  <p style="font-size:0.85rem; color:#777;">All 3 requests fire at the same time. Results arrive as each one finishes.</p>
+  <div *ngFor="let p of userPosts" style="background:#f0f4ff; border:1px solid #c5d5f5; border-radius:6px; padding:0.5rem 1rem; margin-top:0.4rem;">
+    <strong>User {{ p.userId }}</strong> - {{ p.title }}
+  </div>
+
+  <h3>Bonus - map + tap + filter + switchMap in one pipe()</h3>
+  <button (click)="onBonusClick()" style="padding:0.3rem 0.9rem; cursor:pointer;">Run Chain</button>
+  <div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:0.5rem;" *ngIf="bonusTapLog.length > 0 || bonusPost">
+    <div *ngIf="bonusTapLog.length > 0">
+      <strong>tap log</strong>
+      <ul style="padding-left:1.2rem; font-size:0.85rem; color:#555;">
+        <li *ngFor="let l of bonusTapLog">{{ l }}</li>
+      </ul>
+    </div>
+    <div *ngIf="bonusPost">
+      <strong>switchMap result</strong>
+      <div style="background:#f0f4ff; border:1px solid #c5d5f5; border-radius:6px; padding:0.5rem 1rem; margin-top:0.4rem;">
+        <strong>#{{ bonusPost.id }}</strong> - {{ bonusPost.title }}
+      </div>
+    </div>
+  </div>
+</div>

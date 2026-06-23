@@ -1,0 +1,40 @@
+<div>
+  <h2>Assignment 1 - Observable, Observer, Subscription</h2>
+
+  <h3>new Observable() - emits 5 numbers</h3>
+  <p>Observer has <code>next</code>, <code>error</code>, and <code>complete</code> callbacks. Subscription is stored and <code>unsubscribe()</code> is called on complete.</p>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.5rem;">
+    <div>
+      <strong>Values received</strong>
+      <div style="margin-top:0.4rem;">
+        <span *ngFor="let n of numbers" style="margin-right:0.4rem; background:#e3f2fd; padding:0.15rem 0.5rem; border-radius:10px;">{{ n }}</span>
+      </div>
+    </div>
+    <div>
+      <strong>Observer log</strong>
+      <ul style="padding-left:1.2rem; font-size:0.9rem;">
+        <li *ngFor="let l of logs" [style.color]="l === 'complete' ? 'green' : '#333'">{{ l }}</li>
+      </ul>
+    </div>
+  </div>
+  <p *ngIf="unsubMsg" style="margin-top:0.5rem; background:#fff3cd; padding:0.4rem 0.8rem; border-radius:4px; font-size:0.88rem;">
+    {{ unsubMsg }}
+  </p>
+
+  <h3>of() - static values</h3>
+  <span *ngFor="let v of ofValues" style="margin-right:0.4rem; background:#d4edda; padding:0.15rem 0.5rem; border-radius:10px;">{{ v }}</span>
+
+  <h3>from() - array to Observable</h3>
+  <span *ngFor="let v of fromValues" style="margin-right:0.4rem; background:#d4edda; padding:0.15rem 0.5rem; border-radius:10px;">{{ v }}</span>
+
+  <h3>interval(500ms) - first 5 ticks</h3>
+  <p style="font-size:0.85rem; color:#777;">Uses <code>takeUntil(destroy$)</code> — unsubscribes when component is destroyed.</p>
+  <span *ngFor="let v of intervalValues" style="margin-right:0.4rem; background:#e3f2fd; padding:0.15rem 0.5rem; border-radius:10px;">{{ v }}</span>
+
+  <h3>Bonus - timer(2000)</h3>
+  <div [style.background]="timerMsg === 'Waiting...' ? '#f0f0f0' : '#d4edda'"
+       [style.color]="timerMsg === 'Waiting...' ? '#555' : '#155724'"
+       style="display:inline-block; padding:0.5rem 1rem; border-radius:4px; margin-top:0.4rem; font-weight:500;">
+    {{ timerMsg }}
+  </div>
+</div>
