@@ -107,6 +107,14 @@ This repository serves as a central hub for all Angular training activities and 
   - Assignment 5: Type-safe HTTP — `User`, `Todo`, `Post`, `Comment`, `Product` interfaces, generic service methods (`http.get<Todo[]>()`), bonus `Partial<User>` and `Omit<Todo,'id'>` utility types
   - Learning: `HttpClient`, `provideHttpClient()`, RxJS operators, error handling, type-safe generics, HTTP interceptors
 
+- **Day-16(23-June)/**: RxJS — Observables, Operators & Subscriptions
+  - `Assignment.md`: 2 assignments covering RxJS fundamentals and core operators
+  - `assign1/`: Observable, Observer, Subscription
+    - `assign1.component.ts/html`: Custom `Observable` emitting 5 numbers with `next`, `error`, `complete` callbacks; subscription stored and `unsubscribe()` called on complete; `of()`, `from()`, `interval()` with `takeUntil`; bonus `timer(2000)`
+  - `assign2/`: Core RxJS Operators
+    - `assign2.component.ts/html`: `map` + `tap` + `filter` pipeline on numbers 1–10; `switchMap` fetching a post on button click; `mergeMap` loading posts for users 1, 2, 3 concurrently; bonus full chain in one `pipe()`
+  - Learning: `Observable`, `Observer`, `Subscription`, `of`, `from`, `interval`, `timer`, `map`, `filter`, `tap`, `switchMap`, `mergeMap`, `takeUntil`, `Subject`
+
 ---
 
 **Note**: This repository is designed for the Corporate Guide Angular Training Program and serves as the primary resource for internship work and learning.
