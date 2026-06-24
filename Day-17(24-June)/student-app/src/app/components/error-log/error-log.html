@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="header-row">
+    <h2>Error Log (Bonus)</h2>
+    <button (click)="clear()" *ngIf="entries.length > 0">Clear</button>
+  </div>
+
+  <p class="info">All HTTP errors caught by <code>ErrorInterceptor</code> are tracked here via <code>ErrorLogService</code>.</p>
+
+  <p class="empty" *ngIf="entries.length === 0">No errors logged yet. Go to Posts and trigger one.</p>
+
+  <div class="entry" *ngFor="let e of entries">
+    <span class="status" [class.s4]="e.status >= 400 && e.status < 500" [class.s5]="e.status >= 500">
+      {{ e.status }}
+    </span>
+    <div class="details">
+      <strong>{{ e.message }}</strong>
+      <span class="url">{{ e.url }}</span>
+    </div>
+    <span class="time">{{ e.time }}</span>
+  </div>
+</div>

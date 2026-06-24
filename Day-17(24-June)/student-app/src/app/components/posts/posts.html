@@ -1,0 +1,23 @@
+<div class="page">
+  <h2>Assignment 1 - Logging & Timing Interceptors</h2>
+  <p class="info">Every request is logged by <code>LoggingInterceptor</code> (method + URL + status) and timed by <code>TimingInterceptor</code>. Open the browser console to see the logs.</p>
+
+  <button (click)="loadPosts()">Fetch Posts (GET)</button>
+  <p *ngIf="loading" class="loading">Loading...</p>
+
+  <div class="post-card" *ngFor="let p of posts">
+    <strong>#{{ p.id }} - {{ p.title }}</strong>
+    <p>{{ p.body }}</p>
+  </div>
+
+  <hr style="margin: 2rem 0;">
+
+  <h2>Assignment 3 - Error Interceptor</h2>
+  <p class="info">Each button triggers a different HTTP error. The <code>ErrorInterceptor</code> retries twice, then shows a toast and logs to the Error Log page.</p>
+
+  <div class="btn-row">
+    <button class="btn-warn" (click)="triggerNotFound()">Trigger 404</button>
+    <button class="btn-warn" (click)="triggerServerError()">Trigger 500</button>
+    <button class="btn-warn" (click)="triggerUnauthorized()">Trigger 401</button>
+  </div>
+</div>

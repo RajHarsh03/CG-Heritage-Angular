@@ -1,0 +1,11 @@
+<nav>
+  <span class="brand">{{ title }}</span>
+  <a routerLink="/posts" routerLinkActive="active">Posts</a>
+  <a routerLink="/error-log" routerLinkActive="active">Error Log</a>
+</nav>
+
+<app-toast></app-toast>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
