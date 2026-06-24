@@ -40,19 +40,36 @@ This repository serves as a central hub for all Angular training activities and 
   - Assignment 2: Pipe Chaining Challenge — master combining multiple pipes for complex transformations
   - Learning: Pipe syntax, chaining pipes, real-world data transformation, template optimization
 
-- **Day-06(09-June)/**: Angular Component Lifecycle Hooks
-  - `student-app/`: Lifecycle hooks demo application
-  - Assignment 1: LifecycleLoggerComponent — implement all 8 lifecycle hooks with timestamping
-  - Assignment 2: ParentChildComponent with ngOnChanges — detect input changes with visual feedback
-  - Learning: Lifecycle hooks, `@Input` decorator, change detection, hook execution order
+- **Day-06(09-June)/**: @Component Decorator & Angular Lifecycle Hooks
+  - `@Component` decorator — `selector`, `templateUrl`, `styleUrls`, `changeDetection`, `encapsulation`
+  - All 8 lifecycle hooks and their execution order
+  - `ngOnChanges()` — reacts to `@Input()` changes via `SimpleChanges`
+  - `ngOnInit()` — data fetching, subscriptions, form setup (not constructor)
+  - `ngDoCheck()` — custom change detection logic
+  - `ngAfterContentInit()` / `ngAfterContentChecked()` — projected content via `ng-content`
+  - `ngAfterViewInit()` — accessing `@ViewChild` and DOM references after view is ready
+  - `ngAfterViewChecked()` — runs after every view change detection cycle
+  - `ngOnDestroy()` — cleanup subscriptions, timers, event listeners; `takeUntil(destroy$)` pattern
 
 - **Day-07(10-June)/**: NgModules & Modular Architecture
-  - `ecommerce-app/`: Mini e-commerce platform with modular architecture
-  - Part 1: Project Setup & AppModule — lean root component with NavbarComponent and routing
-  - Part 2: SharedModule with reusable ButtonComponent, BadgeComponent, SpinnerComponent, HighlightDirective, TruncateTextDirective, TruncatePipe, and RupeePipe
-  - Learning: NgModules, SharedModule, feature modules, lazy loading, custom pipes & directives
+  - NgModules — `declarations`, `imports`, `providers`, `exports`, `bootstrap`
+  - `AppModule` — root module, `BrowserModule`, `HttpClientModule`, lean shell pattern
+  - Feature Modules — domain-driven modules, eager vs lazy loading
+  - Lazy loading via `loadChildren` and `RouterModule.forChild()`
+  - `SharedModule` — reusable components, directives, pipes; re-exports `CommonModule`
+  - `CoreModule` — singleton services, duplicate-import guard pattern
+  - `ng generate module` — `--route`, `--routing`, `--module`, `--flat`, `--dry-run` flags
+  - `forRoot()` in `AppRoutingModule`, `forChild()` in all feature routing modules
 
-- **Day-08(11-June)/**: *(Content coming soon)*
+- **Day-08(11-June)/**: Angular CLI Deep Dive — DevOps & Build Skills
+  - `ng generate` — component, service, module, pipe, guard, interface with flags (`--flat`, `--skip-tests`)
+  - `ng build` — dev vs production builds, `--watch`, `--stats-json`
+  - `ng test` — Karma + Jasmine, code coverage, targeted test runs
+  - Environment files — `environment.ts` vs `environment.prod.ts`, file replacements in `angular.json`
+  - Production optimizations — minification, bundling, dead code elimination, AOT compilation
+  - Tree Shaking — removes unused exports from the final bundle
+  - Angular DevTools — component tree inspector, change detection profiler, `ng.getComponent()` in console
+  - ESLint + Prettier — linting rules, auto-formatting, Husky pre-commit hooks
 
 - **Day-09(Mock Test)/**: Mock Evaluation & Learning Summary
   - Comprehensive mock evaluation covering all concepts from Days 5–8
@@ -61,7 +78,13 @@ This repository serves as a central hub for all Angular training activities and 
   - Serves as checkpoint before advancing to Angular Router and HTTP concepts
 
 - **Day-10(15-June)/**: Angular Services & Dependency Injection
-  - Learning: `@Injectable`, `providedIn: 'root'`, DI system, injecting services into components, separating business logic, service scope
+  - What services are, when to use them, and how they differ from components
+  - `ng generate service` — auto-registered via `providedIn: 'root'`
+  - `@Injectable` decorator — `providedIn` options: root, module-level, component-level
+  - Dependency Injection — constructor injection, DI hierarchy (Root → Module → Component)
+  - Singleton behaviour — one shared instance across the entire app
+  - Service communication using `BehaviorSubject` and `Observable` for reactive data sharing
+  - Hands-on build: `StudentService` with in-memory CRUD — `getStudents`, `getStudentById`, `addStudent`, `updateStudent`, `deleteStudent`
 
 - **Day-11(16-June)/**: Angular Router & SPA Navigation
   - `student-app/`: Multi-page SPA with Home, About, and Students pages
@@ -82,14 +105,11 @@ This repository serves as a central hub for all Angular training activities and 
   - Learning: `CanActivate`, `CanDeactivate`, lazy loading with `loadChildren`, route resolvers, wildcard routes
 
 - **Day-13(18-June)/**: Angular Forms — Template-Driven & Reactive
-  - `Assignment.md`: 5-question assignment covering Angular Forms in depth
-  - `solutions/`: Complete solutions for all questions
-    - `q1.md`: Written comparison of Template-Driven Forms vs Reactive Forms with real-world examples
-    - `q2.component.ts/html`: Job Application Reactive Form — Full Name, Email, Years of Experience, Job Role with all validation messages
-    - `q3.component.ts/html`: Custom `noProfanityValidator` (`ValidatorFn`) that returns `{ hasProfanity: true }` if the field contains `'badword'`
-    - `q4.component.ts/html`: Demonstration of `markAllAsTouched()` with a complete `onSubmit()` method — checks validity, logs data on success, logs all control errors on failure
-    - `q5.component.ts/html`: Extended Student Registration Form with a `minAgeValidator(16)` custom validator on Date of Birth and a Gender dropdown
-  - Learning: `FormBuilder`, `FormGroup`, `FormControl`, built-in validators, custom `ValidatorFn`, `markAllAsTouched()`, reactive form patterns
+  - Template-Driven Forms — `ngForm`, `ngModel`, two-way binding, `FormsModule`
+  - Reactive Forms — `FormGroup`, `FormControl`, `FormBuilder`, `ReactiveFormsModule`
+  - Built-in Validators — `required`, `minLength`, `maxLength`, `email`, `min`, `max`, `pattern`
+  - Custom Validators — reusable `ValidatorFn` functions, group-level cross-field validators
+  - Form Submission — `markAllAsTouched()`, validity check, displaying validation errors
 
 - **Day-14(Mock Test)/**: Mock Evaluation & Learning Summary
   - Comprehensive mock evaluation covering all concepts from Days 10–13
@@ -98,22 +118,25 @@ This repository serves as a central hub for all Angular training activities and 
   - Serves as checkpoint before advancing to Angular HTTP Client concepts
 
 - **Day-15(22-June)/**: Angular HTTP Client & REST API Integration
-  - `Assignement.md`: 5 assignments covering Angular's HTTP layer end-to-end
-  - `student-app/`: Full Angular app with standalone components, `provideHttpClient()`, and a global `HttpInterceptor`
-  - Assignment 1: `DataService` with `GET`, `POST`, `PUT`, `DELETE` methods against `jsonplaceholder.typicode.com/todos`, custom `Content-Type` header
-  - Assignment 2: Todo CRUD UI — list, load by ID, add via reactive form, delete; bonus login via `reqres.in`
-  - Assignment 3: RxJS operators — `map`, `tap`, `filter`, real-time search, `takeUntil` unsubscription, bonus `switchMap` chaining users → todos
-  - Assignment 4: Error handling — `handleError()` for `400/401/403/404/500`, `retry(2)`, user-friendly messages; bonus global functional `HttpInterceptorFn`
-  - Assignment 5: Type-safe HTTP — `User`, `Todo`, `Post`, `Comment`, `Product` interfaces, generic service methods (`http.get<Todo[]>()`), bonus `Partial<User>` and `Omit<Todo,'id'>` utility types
-  - Learning: `HttpClient`, `provideHttpClient()`, RxJS operators, error handling, type-safe generics, HTTP interceptors
+  - `HttpClientModule` — setup, `GET`, `POST`, `PUT`, `DELETE` with `HttpClient`
+  - Consuming REST APIs — JSON Placeholder & mock API integration
+  - Observable-based HTTP — subscribing, handling responses, `async` patterns
+  - Error handling — `catchError`, `throwError`, `retry`, global `HttpInterceptor`
+  - Type-safe HTTP — interfaces with `HttpClient` generics (`http.get<Todo[]>()`)
 
 - **Day-16(23-June)/**: RxJS — Observables, Operators & Subscriptions
-  - `Assignment.md`: 2 assignments covering RxJS fundamentals and core operators
-  - `assign1/`: Observable, Observer, Subscription
-    - `assign1.component.ts/html`: Custom `Observable` emitting 5 numbers with `next`, `error`, `complete` callbacks; subscription stored and `unsubscribe()` called on complete; `of()`, `from()`, `interval()` with `takeUntil`; bonus `timer(2000)`
-  - `assign2/`: Core RxJS Operators
-    - `assign2.component.ts/html`: `map` + `tap` + `filter` pipeline on numbers 1–10; `switchMap` fetching a post on button click; `mergeMap` loading posts for users 1, 2, 3 concurrently; bonus full chain in one `pipe()`
-  - Learning: `Observable`, `Observer`, `Subscription`, `of`, `from`, `interval`, `timer`, `map`, `filter`, `tap`, `switchMap`, `mergeMap`, `takeUntil`, `Subject`
+  - RxJS Fundamentals — `Observable`, `Observer`, `Subscription`
+  - Core Operators — `map`, `filter`, `tap`, `switchMap`, `mergeMap`
+  - `Subject` & `BehaviorSubject` — sharing state across components
+  - `debounceTime` & `distinctUntilChanged` — search optimization
+  - `combineLatest` & `forkJoin` — handling multiple streams
+
+- **Day-17(24-June)/**: Angular HTTP Interceptors
+  - HTTP Interceptors — what they are and how to register with `HTTP_INTERCEPTORS`
+  - Adding auth token to all requests via interceptor
+  - Global Error Interceptor — centralized error handling with `catchError`
+  - Loading Spinner Interceptor — show/hide on HTTP calls
+  - Testing Interceptors — unit test strategies
 
 ---
 
