@@ -1,0 +1,15 @@
+<div class="page">
+  <h2>Assignment 2 - Products</h2>
+  <p class="info">Both components share the same <code>CartService</code> singleton — no <code>@Input</code>/<code>@Output</code> used.</p>
+
+  <div class="product-card" *ngFor="let p of products">
+    <div class="product-info">
+      <strong>{{ p.name }}</strong>
+      <span class="category">{{ p.category }}</span>
+    </div>
+    <div class="product-right">
+      <span class="price">₹{{ p.price }}</span>
+      <button (click)="addToCart(p)">Add to Cart</button>
+    </div>
+  </div>
+</div>

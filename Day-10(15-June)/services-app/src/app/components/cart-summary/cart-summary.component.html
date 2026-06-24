@@ -1,0 +1,20 @@
+<div class="cart">
+  <div class="cart-header">
+    <h3>Cart ({{ items.length }})</h3>
+    <button class="clear-btn" *ngIf="items.length > 0" (click)="clearCart()">Clear Cart</button>
+  </div>
+
+  <p class="empty" *ngIf="items.length === 0">Cart is empty. Add products from the list.</p>
+
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <div class="item-right">
+      <span class="price">₹{{ item.price }}</span>
+      <button class="remove-btn" (click)="removeItem(item.id)">✕</button>
+    </div>
+  </div>
+
+  <div class="cart-total" *ngIf="items.length > 0">
+    <strong>Total:</strong> ₹{{ total }}
+  </div>
+</div>
