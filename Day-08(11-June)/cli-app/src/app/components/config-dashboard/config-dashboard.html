@@ -1,0 +1,45 @@
+<div class="dashboard">
+  <h2>Assignment 1 - Config Dashboard</h2>
+  <p class="info">
+    Values are read from <code>environment.ts</code> via <code>EnvironmentService</code>.
+    Change the build configuration to see different values.
+  </p>
+
+  <div class="env-badge" [class.prod]="config.production" [class.dev]="!config.production">
+    {{ config.production ? 'PRODUCTION' : 'DEVELOPMENT' }}
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>App Name</td>
+        <td>{{ config.appName }}</td>
+      </tr>
+      <tr>
+        <td>API URL</td>
+        <td><code>{{ config.apiUrl }}</code></td>
+      </tr>
+      <tr>
+        <td>Log Level</td>
+        <td><span class="badge" [class]="config.logLevel">{{ config.logLevel }}</span></td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td>{{ config.production }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="commands">
+    <h3>Build Commands</h3>
+    <div class="cmd"><span class="label">Development:</span> <code>ng build</code></div>
+    <div class="cmd"><span class="label">Staging:</span> <code>ng build --configuration staging</code></div>
+    <div class="cmd"><span class="label">Production:</span> <code>ng build --configuration production</code></div>
+  </div>
+</div>
