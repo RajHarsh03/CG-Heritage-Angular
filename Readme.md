@@ -138,6 +138,13 @@ This repository serves as a central hub for all Angular training activities and 
   - Loading Spinner Interceptor — show/hide on HTTP calls
   - Testing Interceptors — unit test strategies
 
+- **Day-18(25-June)/**: State Management Architecture
+  - Angular Signals (`v17+`) — `signal()`, `computed()`, `effect()` core API
+  - Component state with Signals vs Observables — when to use each
+  - `BehaviorSubject` for shared service state across components
+  - NgRx overview — Store, Actions, Reducers, Effects (concept)
+  - Local state vs Global state — decision guide
+
 ---
 
 **Note**: This repository is designed for the Corporate Guide Angular Training Program and serves as the primary resource for internship work and learning.
