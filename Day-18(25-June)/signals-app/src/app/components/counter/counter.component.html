@@ -1,0 +1,29 @@
+<div class="counter-page">
+  <h2>Part A - Counter App with Signals</h2>
+  <p class="info">Uses <code>signal()</code>, <code>computed()</code>, and <code>effect()</code>. Count cannot go below 0.</p>
+
+  <div class="stats">
+    <div class="stat-card">
+      <span class="label">Count</span>
+      <span class="value">{{ count() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">Double</span>
+      <span class="value blue">{{ double() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">Square</span>
+      <span class="value green">{{ square() }}</span>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-primary" (click)="increment()">+1</button>
+    <button class="btn-danger"  (click)="decrement()" [disabled]="count() === 0">-1</button>
+    <button class="btn-grey"    (click)="reset()">Reset</button>
+    <button class="btn-success" (click)="addFive()">+5</button>
+  </div>
+
+  <p class="guard-note" *ngIf="count() === 0">Count is at 0 — cannot go below 0.</p>
+  <p class="hint">Open browser console to see <code>effect()</code> logs on every change.</p>
+</div>
