@@ -145,6 +145,19 @@ This repository serves as a central hub for all Angular training activities and 
   - NgRx overview — Store, Actions, Reducers, Effects (concept)
   - Local state vs Global state — decision guide
 
+- **Day-19 to Day-22/**: Revision & Capstone Project Discussion
+  - Days 19–22 were dedicated to revision of all concepts covered in Weeks 1–3
+  - Capstone project discussion — planning, architecture decisions, feature breakdown
+  - Review of: Components, Signals, Pipes, Lifecycle Hooks, NgModules, Services, Router, Guards, Forms, HTTP Client, RxJS, Interceptors, State Management
+  - Students presented capstone project ideas and received feedback
+
+- **Day-23(02-July)/**: Live Session — TypeScript Class, Object & Template Literals
+  - `class-demo/`: Small Angular standalone app built during live session
+  - `Student` class with `id`, `name`, `course` properties and a constructor
+  - Object instantiation — `new Student(1, 'Harsh Rajput', 'Angular')`
+  - Template literal displaying student details — `` `Student ID: ${id} | Name: ${name} | Course: ${course}` ``
+  - Concepts covered: Class, Object, Template Literals
+
 ---
 
 **Note**: This repository is designed for the Corporate Guide Angular Training Program and serves as the primary resource for internship work and learning.

@@ -25,7 +25,7 @@ class Student {
   styleUrl: './app.css',
 })
 export class App {
-  student = new Student(1, 'Harsh Rajput', 'Angular');
+  student = new Student(1, 'Harsh', 'Angular');
 
   details = `Student ID: ${this.student.id} | Name: ${this.student.name} | Course: ${this.student.course}`;
 }
